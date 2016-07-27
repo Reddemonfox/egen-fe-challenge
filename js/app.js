@@ -2,13 +2,13 @@ angular.module('myApp', [])
     .controller('mainController', function ($scope) {
         $scope.isValid = false;
         $scope.clr = '#e0e0e0';
-
+        // Setting the border of input box according to the valid status of card number entered
         $scope.onBlur =function () {
             if($scope.isValid){
                 $scope.clr = '#e0e0e0';
             }
             else{
-                $scope.clr = '#F44336';
+                $scope.clr = '#F44336'; // red for invalid card
             }
         }
         $scope.onFocus = function() {
@@ -31,6 +31,7 @@ angular.module('myApp', [])
                 sum += prodArr[mul][parseInt(ccnumber.charAt(len), 10)];
                 mul ^= 1;
             }
+            //check the validity using luhn algo
             if (sum % 10 === 0 && sum > 0) {
                 scope.isValid = true;
             } else {
@@ -38,24 +39,19 @@ angular.module('myApp', [])
             }
 
             if(/^(34)|^(37)/.test(ccnumber)) {
-                cardType = "American Express";
-                result = 'icons/a_e.png';
+                result = 'icons/a_e.png'; // American Express Card
             }
             else if(/^(62)|^(88)/.test(ccnumber)) {
-                cardType = "China UnionPay";
-                result = 'icons/c_u_p.png';
+                result = 'icons/c_u_p.png'; //China Union Pay card
             }
             else if(/^(5018)|^(5020)|^(5038)|^(5893)|^(6304)|^(6759)|^(6761)|^(6762)|^(6763)|^(0604)/.test(ccnumber)) {
-                cardType = "Maestro";
-                result = 'icons/m.png';
+                result = 'icons/m.png'; //Maestro card
             }
             else if(/^5[1-5]/.test(ccnumber)) {
-                cardType = "MasterCard";
-                result = 'icons/m_c.png';
+                result = 'icons/m_c.png'; // Master card
             }
             else if (/^4/.test(ccnumber)) {
-                cardType = "Visa"
-                result = 'icons/v.png';
+                result = 'icons/v.png'; // Visa card
             }
             else{
                 result = 'icons/d_c.png';

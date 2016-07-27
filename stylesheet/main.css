@@ -1,0 +1,17 @@
+.outer-div{
+    background: #dddddd;
+    padding:5px;
+    width: 350px;
+}
+.inner-div{
+    background: #ffffff;
+}
+.input-lg{
+    background: url(icons/m_c.png) no-repeat scroll 7px 7px;
+    padding-left:60px;
+    -webkit-border-radius:0;
+    -moz-border-radius:0;
+    border-radius:0;
+    width: 100%;
+    color: #777777;
+}
