@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <title>AngularJS is awesome</title>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="js/app.js"></script>
+</head>
+<style>
+    .outer-div{
+        background: #dddddd;
+        padding:5px;
+        width: 350px;
+    }
+    .inner-div{
+        background: #ffffff;
+    }
+    .input-lg{
+        background: url(icons/m_c.png) no-repeat scroll 7px 7px;
+        padding-left:60px;
+        -webkit-border-radius:0;
+        -moz-border-radius:0;
+        border-radius:0;
+        width: 100%;
+        color: #777777;
+    }
+</style>
+<body ng-controller="mainController">
+<div >
+    <div class="outer-div">
+        <span style="color: #2196F3;font-size: 20px;">*</span>
+        <span style="font-size: 16px;"><strong>CARD NUMBER</strong></span>
+        <div class="inner-div">
+                <input type="text" ng-blur="onBlur()" ng-focus="onFocus()" ng-model="crdno" style="background-image: url({{crdno | validate : this}});border:1px solid {{clr}}" placeholder="Card Number" class="input-lg"/>
+        </div>
+    </div>
+</div>
+</body>
+</html>
