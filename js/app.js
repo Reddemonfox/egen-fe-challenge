@@ -45,27 +45,31 @@ angular.module('myApp', [])
             if(/^(34)|^(37)/.test(card_number)) {
                 scope.max_length = 15;
                 result = 'icons/a_e.png'; // American Express Card
+                return result;
             }
-            else if(/^(62)|^(88)/.test(card_number)) {
+            if(/^(62)/.test(card_number)) {
                 scope.max_length = 19;
                 result = 'icons/c_u_p.png'; //China Union Pay card
+                return result;
             }
-            else if(/^(5018)|^(5020)|^(5038)|^(5893)|^(6304)|^(6759)|^(6761)|^(6762)|^(6763)|^(0604)/.test(card_number)) {
-                scope.max_length = 19;
-                result = 'icons/m.png'; //Maestro card
-            }
-            else if(/^5[1-5]/.test(card_number)) {
+            if(/^5[1-5]/.test(card_number)) {
                 scope.max_length = 16;
                 result = 'icons/m_c.png'; // Master card
+                return result;
             }
-            else if (/^4/.test(card_number)) {
+            if(/^(50)|^5[6-9]|^6[0-9]/.test(card_number)) {
+                scope.max_length = 19;
+                result = 'icons/m.png'; //Maestro card
+                return result;
+            }
+            if (/^4/.test(card_number)) {
                 scope.max_length = 19;
                 result = 'icons/v.png'; // Visa card
+                return result;
             }
-            else{
                 scope.max_length = 19;
                 result = 'icons/d_c.png';
-            }
-            return result;
+                return result;
+
         };
     }]);
