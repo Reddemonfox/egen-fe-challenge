@@ -14,7 +14,7 @@
         <span style="color: #2196F3;font-size: 20px;">*</span>
         <span style="font-size: 16px;"><strong>CARD NUMBER</strong></span>
         <div class="inner-div">
-                <input type="text" ng-blur="onBlur()" ng-focus="onFocus()" ng-model="crdno" style="background-image: url({{crdno | validate : this}});border:1px solid {{clr}}" placeholder="Card Number" class="input-lg"/>
+                <input type="text" maxlength="{{max_length}}" ng-blur="onBlur()" ng-focus="onFocus()" ng-model="card_number" style="background-image: url({{card_number | validate : this}});border:1px solid {{clr}}" placeholder="Card Number" class="input-lg"/>
         </div>
     </div>
 </div>
